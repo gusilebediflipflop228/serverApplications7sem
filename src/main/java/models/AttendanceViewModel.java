@@ -9,8 +9,8 @@ import java.util.List;
 @ToString
 @EqualsAndHashCode
 
-public class Attendance {
+public class AttendanceViewModel {
     private Long id;
-    private Lesson lesson;
-    private List<Student> listOfStudents;
+    List<StudentViewModel> students;
+    private LessonViewModel lesson;
 }

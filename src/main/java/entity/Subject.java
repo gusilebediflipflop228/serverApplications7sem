@@ -1,5 +1,4 @@
-package models;
-
+package entity;
 
 import lombok.*;
 
@@ -9,7 +8,7 @@ import lombok.*;
 @ToString
 @EqualsAndHashCode
 
-public class GroupStudents {
+public class Subject {
     private Long id;
     private String name;
 }

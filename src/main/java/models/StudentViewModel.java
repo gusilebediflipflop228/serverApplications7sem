@@ -8,11 +8,10 @@ import lombok.*;
 @ToString
 @EqualsAndHashCode
 
-public class Student {
+public class StudentViewModel {
     private Long id;
     private String firstname;
     private String lastname;
     private String patronymic;
-    private StudentStatus studentStatus;
-    private GroupStudents groupStudents;
+    private GroupStudentsViewModel groupStudents;
 }
