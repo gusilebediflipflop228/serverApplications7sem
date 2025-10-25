@@ -1,7 +1,7 @@
 package models;
 
-
 import lombok.*;
+import java.util.List;
 
 @AllArgsConstructor
 @Getter
@@ -9,7 +9,8 @@ import lombok.*;
 @ToString
 @EqualsAndHashCode
 
-public class GroupStudents {
+public class Attendance {
     private Long id;
-    private String name;
+    private Lesson lesson;
+    private List<Student> listOfStudents;
 }
