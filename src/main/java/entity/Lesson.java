@@ -2,6 +2,7 @@ package entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import java.util.List;
 import java.time.LocalDate;
 
 @Data
@@ -11,18 +12,22 @@ import java.time.LocalDate;
 public class Lesson {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id")
     private Long id;
 
-    @Column(name="startDate")
+    @Column(name = "startDate")
     private LocalDate startDate;
 
-    @Column(name="lessonNumber")
+    @Column(name = "lessonNumber")
     private int lessonNumber;
 
-    @Column(name="professor")
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "professor_id")
     private Professor professor;
 
-    @Column(name="groupStudents")
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "groupStudents_id")
     private GroupStudents groupStudents;
+
+    @ManyToMany(mappedBy = "listOfLessons")
+    private List<Attendance> listOfAttendance;
 }

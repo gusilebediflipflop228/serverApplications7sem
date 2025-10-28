@@ -6,19 +6,18 @@ import lombok.*;
 @Data
 
 @Entity
-@Table (name = "professor")
+@Table(name = "professor")
 public class Professor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id")
     private Long id;
 
-    @Column(name="firstname")
+    @Column(name = "firstname")
     private String firstname;
 
-    @Column(name="lastname")
+    @Column(name = "lastname")
     private String lastname;
 
-    @Column(name="patronymic")
+    @Column(name = "patronymic")
     private String patronymic;
 }

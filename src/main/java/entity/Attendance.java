@@ -14,12 +14,21 @@ import java.util.List;
 public class Attendance {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id")
     private Long id;
 
-    @Column(name="lesson")
-    private Lesson lesson;
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "attendance_lesson",
+            joinColumns = @JoinColumn(name = "attendance_id"),
+            inverseJoinColumns = @JoinColumn(name = "lesoson_id")
+    )
+    private List<Lesson> listOfLessons;
 
-    @Column(name="listOftudents")
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "attendance_student",
+            joinColumns = @JoinColumn(name = "attendance_id"),
+            inverseJoinColumns = @JoinColumn(name = "student_id")
+    )
     private List<Student> listOfStudents;
 }

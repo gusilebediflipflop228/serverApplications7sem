@@ -3,29 +3,34 @@ package entity;
 import entity.enums.StudentStatus;
 import jakarta.persistence.*;
 import lombok.*;
+import java.util.List;
 
 @Data
 
 @Entity
-@Table (name = "student")
+@Table(name = "student")
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id")
+
     private Long id;
 
-    @Column(name="firstname")
+    @Column(name = "firstname")
     private String firstname;
 
-    @Column(name="lastname")
+    @Column(name = "lastname")
     private String lastname;
 
-    @Column(name="patronymic")
+    @Column(name = "patronymic")
     private String patronymic;
 
-    @Column(name="studentsStatus")
+    @Column(name = "studentsStatus")
     private StudentStatus studentStatus;
 
-    @Column(name="groupStudents")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "groupStudents_id")
     private GroupStudents groupStudents;
+
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "listOfStudents")
+    private List<Attendance> attendance;
 }
