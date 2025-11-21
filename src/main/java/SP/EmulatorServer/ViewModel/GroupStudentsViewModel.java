@@ -1,4 +1,4 @@
-package ViewModels;
+package SP.EmulatorServer.ViewModel;
 
 import lombok.*;
 
@@ -8,7 +8,7 @@ import lombok.*;
 @ToString
 @EqualsAndHashCode
 
-public class SubjectViewModel {
+public class GroupStudentsViewModel {
     private Long id;
     private String name;
 }

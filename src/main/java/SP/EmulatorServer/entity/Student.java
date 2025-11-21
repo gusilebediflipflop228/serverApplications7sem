@@ -1,6 +1,6 @@
-package entity;
+package SP.EmulatorServer.entity;
 
-import entity.enums.StudentStatus;
+import SP.EmulatorServer.entity.enums.StudentStatus;
 import jakarta.persistence.*;
 import lombok.*;
 import java.util.List;
@@ -24,6 +24,7 @@ public class Student {
     @Column(name = "patronymic")
     private String patronymic;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "studentsStatus")
     private StudentStatus studentStatus;
 

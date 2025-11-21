@@ -1,4 +1,4 @@
-package entity;
+package SP.EmulatorServer.entity;
 
 
 import jakarta.persistence.*;
@@ -16,13 +16,9 @@ public class Attendance {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(
-            name = "attendance_lesson",
-            joinColumns = @JoinColumn(name = "attendance_id"),
-            inverseJoinColumns = @JoinColumn(name = "lesoson_id")
-    )
-    private List<Lesson> listOfLessons;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "lesson_id")
+    private Lesson lesson;
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(

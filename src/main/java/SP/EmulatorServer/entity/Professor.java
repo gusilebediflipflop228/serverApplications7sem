@@ -1,4 +1,4 @@
-package entity;
+package SP.EmulatorServer.entity;
 
 import jakarta.persistence.*;
 import lombok.*;

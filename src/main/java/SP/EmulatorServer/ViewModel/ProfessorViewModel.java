@@ -1,4 +1,4 @@
-package ViewModels;
+package SP.EmulatorServer.ViewModel;
 
 import lombok.*;
 

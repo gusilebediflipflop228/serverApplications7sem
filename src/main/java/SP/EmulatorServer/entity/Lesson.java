@@ -1,4 +1,4 @@
-package entity;
+package SP.EmulatorServer.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -20,14 +20,11 @@ public class Lesson {
     @Column(name = "lessonNumber")
     private int lessonNumber;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "professor_id")
     private Professor professor;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "groupStudents_id")
     private GroupStudents groupStudents;
-
-    @ManyToMany(mappedBy = "listOfLessons")
-    private List<Attendance> listOfAttendance;
 }

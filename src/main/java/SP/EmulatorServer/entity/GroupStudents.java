@@ -1,4 +1,5 @@
-package entity;
+package SP.EmulatorServer.entity;
+
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -6,8 +7,8 @@ import lombok.*;
 @Data
 
 @Entity
-@Table(name = "subject")
-public class Subject {
+@Table(name = "groupStudents")
+public class GroupStudents {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
