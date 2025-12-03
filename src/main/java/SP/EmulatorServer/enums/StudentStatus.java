@@ -1,4 +1,4 @@
-package SP.EmulatorServer.entity.enums;
+package SP.EmulatorServer.enums;
 
 public enum StudentStatus {
     STUDIES,

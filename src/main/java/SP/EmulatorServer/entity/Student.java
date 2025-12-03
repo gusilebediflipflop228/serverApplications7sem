@@ -1,28 +1,29 @@
 package SP.EmulatorServer.entity;
 
-import SP.EmulatorServer.entity.enums.StudentStatus;
+import SP.EmulatorServer.enums.StudentStatus;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 import java.util.List;
 
 @Data
-
 @Entity
-@Table(name = "student")
+@Table(name = "students")
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private Long id;
 
-    @Column(name = "firstname")
-    private String firstname;
+    @Column(nullable = false)
+    private String firstName;
 
-    @Column(name = "lastname")
-    private String lastname;
+    @Column(nullable = false)
+    private String lastName;
 
-    @Column(name = "patronymic")
-    private String patronymic;
+    @Column(nullable = false)
+    private String middleName;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "studentsStatus")
@@ -34,4 +35,12 @@ public class Student {
 
     @ManyToMany(fetch = FetchType.LAZY, mappedBy = "listOfStudents")
     private List<Attendance> attendance;
+
+    @CreationTimestamp
+    @Column(nullable = false)
+    private String created_at;
+
+    @UpdateTimestamp
+    @Column(nullable = false)
+    private String updated_at;
 }
